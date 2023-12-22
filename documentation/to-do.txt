@@ -1,6 +1,6 @@
 1) Set up deployment of CDK 
 2) Create Docker Container
-    - Automate install / dependencies (Azure CLI, Terraform, NPM, CDKTF)
+    - Automate install / dependencies (Azure CLI, Terraform, NPM, CDKTF, pipenv)
 3) Create first resources
 4) Update read me
 5) Automate VS Code Extension Installation

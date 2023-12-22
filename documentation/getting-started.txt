@@ -2,4 +2,27 @@ az login
 
 az account set --subscription "<SUBSCRIPTION_ID>"
 
-az ad sp create-for-rbac  -n "ap-deployment-sp" --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION_ID>"
+az ad sp create-for-rbac  -n "ap-deployment-sp" --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION_ID>" -> ONE TIME
+
+# Set environment variables
+set -o allexport
+source conf-file
+set +o allexport
+
+# For CDKTF
+cdktf init --template=python --providers=hashicorp/azurerm --local
+
+
+# For terraform 
+terraform init -> ONE TIME
+
+terraform fmt -> to format configurations
+
+terraform validate -> to validate configuration
+
+terraform apply -> deploy configuration
+
+terraform show -> see current state
+
+terraform state list -> list resources
+
