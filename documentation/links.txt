@@ -1,0 +1,4 @@
+Terraform CDK
+
+Installation: https://developer.hashicorp.com/terraform/tutorials/cdktf/cdktf-install?variants=cdk-language%3Apython
+Get Started: https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build
