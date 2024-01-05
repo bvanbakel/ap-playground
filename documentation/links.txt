@@ -4,3 +4,7 @@ Installation: https://developer.hashicorp.com/terraform/tutorials/cdktf/cdktf-in
 Get Started: https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build
 Azure Provider Documentation: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs?ajs_aid=9129b4d4-9e54-4915-a520-b648c243e5dd&product_intent=terraform
 Terraform Documentation: https://developer.hashicorp.com/terraform/language
+
+Docker
+
+Download Docker: https://docs.docker.com/get-docker/
