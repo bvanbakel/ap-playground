@@ -9,6 +9,6 @@ services:
       args:
         PYTHON_VARIANT: 3.10.7
       target: ap_playground_base
-      volumes:
-        - ..:/workspace:cached
-      command: sleep infinity
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity

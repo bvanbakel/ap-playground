@@ -2,11 +2,5 @@
     "name": "AP Playground",
     "dockerComposeFile": "docker-compose.yml",
     "service": "app",
-    "workspaceFolder": "/workspace",
-    "settings": {
-
-    },
-    "extensions": [
-        
-    ]
+    "workspaceFolder": "/workspace"
 }
