@@ -1,1 +1,3 @@
 python-dotenv==1.0.0
+pipenv
+cdktf-cdktf-provider-azurerm
