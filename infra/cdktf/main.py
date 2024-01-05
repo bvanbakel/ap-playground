@@ -6,30 +6,41 @@ from cdktf_cdktf_provider_azurerm.storage_account import StorageAccount
 from cdktf_cdktf_provider_azurerm.resource_group import ResourceGroup
 
 
+class ApSettings():
+    def __init__(self, environment: str):
+        self.env_long = environment
+        self.env_short = environment[0]
+        self.prefix = "ap"
+        self.resource_group_name = f"{self.prefix}-{self.env_short}-playground-rg"
+        self.storage_account_name = f"{self.prefix}{self.env_short}datalakesa"
+        self.location = "westeurope"
+
 class MyStack(TerraformStack):
     def __init__(self, scope: Construct, id: str):
         super().__init__(scope, id)
 
+        settings = ApSettings(environment="dev")
+
         # define resources here
-        AzurermProvider(
+        azure_provider = AzurermProvider(
             self, 
             id          = 'Azure',
             features    = {}
         )
 
-        ResourceGroup(
+        resource_group = ResourceGroup(
             self,
-            id_          = "test_rg",
-            name        = "test-rg",
-            location    = "westeurope",
+            id_          = "ap_rg",
+            name        = settings.resource_group_name,
+            location    = settings.location,
         )
 
-        StorageAccount(
+        storage_account = StorageAccount(
             self,
-            id_                         = "test_sa",
-            name                        = "testcdktfsa",
-            resource_group_name         = "test-rg",
-            location                    = "westeurope",
+            id_                         = "ap_sa",
+            name                        = settings.storage_account_name,
+            resource_group_name         = resource_group.name,
+            location                    = settings.location,
             account_tier                = "Standard",
             account_replication_type    = "LRS",
             is_hns_enabled              = True,
