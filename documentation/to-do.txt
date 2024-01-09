@@ -7,3 +7,5 @@
 3) Create first resources
 4) Update read me
 5) Automate VS Code Extension Installation
+6) Setup repo, subscription and devops on AP account
+7) Integrate repo in DevOps and creat deployment pipeline
