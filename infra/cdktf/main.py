@@ -4,6 +4,7 @@ from cdktf import App, TerraformStack
 from cdktf_cdktf_provider_azurerm.provider import AzurermProvider
 from cdktf_cdktf_provider_azurerm.storage_account import StorageAccount
 from cdktf_cdktf_provider_azurerm.resource_group import ResourceGroup
+from cdktf_cdktf_provider_azurerm.data_factory import DataFactory
 
 
 class ApSettings():
@@ -13,6 +14,7 @@ class ApSettings():
         self.prefix = "ap"
         self.resource_group_name = f"{self.prefix}-{self.env_short}-playground-rg"
         self.storage_account_name = f"{self.prefix}{self.env_short}datalakesa"
+        self.data_factory_name = f"{self.prefix}-{self.env_short}-playground-adf"
         self.location = "westeurope"
 
 class MyStack(TerraformStack):
@@ -44,6 +46,15 @@ class MyStack(TerraformStack):
             account_tier                = "Standard",
             account_replication_type    = "LRS",
             is_hns_enabled              = True,
+        )
+
+        data_factory = DataFactory(
+            self,
+            id_="ap_adf",
+            name=settings.data_factory_name,
+            location=settings.location,
+            resource_group_name=resource_group.name,
+
         )
 
 app = App()
