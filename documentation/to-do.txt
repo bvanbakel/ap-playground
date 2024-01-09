@@ -1,6 +1,9 @@
 1) Set up deployment of CDK 
 2) Create Docker Container
     - Automate install / dependencies (Azure CLI, Terraform, NPM, CDKTF, pipenv)
+    - Automate installing python packages in pipenv
+    - Automate creating env variables (store as secrets)
+    - Test if docker works for other users
 3) Create first resources
 4) Update read me
 5) Automate VS Code Extension Installation
