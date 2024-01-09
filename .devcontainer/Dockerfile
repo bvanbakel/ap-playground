@@ -24,7 +24,7 @@ RUN apt update
 RUN apt-get install terraform
 
 # Install NodeJs
-RUN curl -fsSL https://deb.nodesource.com/setup_21.x | bash - && \
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs
 
 # Install CDKTF
@@ -35,7 +35,9 @@ COPY ./requirements.txt /usr/local/
 
 RUN pip install --retries 5 -r /usr/local/requirements.txt
 
-# Install CDKTF - Azure Provider
-RUN pipenv install cdktf-cdktf-provider-azurerm
+# Install pipenv and packages inside pipenv
+RUN pip install pipenv
+RUN pipenv install -r /usr/local/requirements.txt
+RUN pipenv sync
 
 CMD ["bash"]

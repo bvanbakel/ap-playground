@@ -1,28 +1,11 @@
-az login
+# Go to cdktf folder
+cd infra/cdktf/
 
-az account set --subscription "<SUBSCRIPTION_ID>"
+# Install correct packages from Pipfile into pipenv 
+pipenv sync
 
-az ad sp create-for-rbac  -n "ap-deployment-sp" --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION_ID>" -> ONE TIME
-
-# Set environment variables
+# Add environment variables
+Add .env with () in cdktf folder
 set -o allexport
-source conf-file
+source .env
 set +o allexport
-
-# For CDKTF
-cdktf init --template=python --providers=hashicorp/azurerm --local
-
-
-# For terraform 
-terraform init -> ONE TIME
-
-terraform fmt -> to format configurations
-
-terraform validate -> to validate configuration
-
-terraform apply -> deploy configuration
-
-terraform show -> see current state
-
-terraform state list -> list resources
-

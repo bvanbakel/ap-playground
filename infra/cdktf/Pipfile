@@ -9,4 +9,5 @@ python_version = "3"
 [packages]
 cdktf = "~=0.19.2"
 pytest = "*"
-cdktf-cdktf-provider-azurerm = "~=11.2.0"
+cdktf-cdktf-provider-azurerm = "*"
+python-dotenv = "==1.0.0"
