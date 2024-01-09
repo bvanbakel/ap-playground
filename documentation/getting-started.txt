@@ -1,3 +1,7 @@
+# Create SP -> ONE TIME ACTION
+az login
+az ad sp create-for-rbac  -n "ap-deployment-sp" --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION_ID>"
+
 # Go to cdktf folder
 cd infra/cdktf/
 
@@ -5,7 +9,7 @@ cd infra/cdktf/
 pipenv sync
 
 # Add environment variables
-Add .env with () in cdktf folder
+Add .env with (AZURE_SUBSCRIPTION_NAME, ARM_SUBSCRIPTION_ID, ARM_TENANT_ID, ARM_CLIENT_ID, ARM_CLIENT_SECRET) in cdktf folder
 set -o allexport
 source .env
 set +o allexport
