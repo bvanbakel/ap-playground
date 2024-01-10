@@ -6,6 +6,7 @@ from cdktf_cdktf_provider_azurerm.storage_account import StorageAccount
 from cdktf_cdktf_provider_azurerm.resource_group import ResourceGroup
 from cdktf_cdktf_provider_azurerm.data_factory import DataFactory
 from cdktf_cdktf_provider_azurerm.key_vault import KeyVault
+from cdktf_cdktf_provider_azurerm.databricks_workspace import DatabricksWorkspace
 from dotenv import load_dotenv
 import os
 
@@ -23,6 +24,7 @@ class ApSettings():
         self.storage_account_name = f"{self.prefix}{self.env_short}datalakesa"
         self.data_factory_name = f"{self.prefix}-{self.env_short}-{self.project_name}-adf"
         self.key_vault_name = f"{self.prefix}-{self.env_short}-{self.project_name}-kv"
+        self.databricks_workspace_name = f"{self.prefix}-{self.env_short}-{self.project_name}-adb"
         self.location = "westeurope"
 
 class MyStack(TerraformStack):
@@ -72,6 +74,15 @@ class MyStack(TerraformStack):
             resource_group_name         = resource_group.name,
             location                    = settings.location,
             sku_name                    = "standard"
+        )
+
+        databricks_ws = DatabricksWorkspace(
+            self,
+            id_="ap_adb",
+            name=settings.databricks_workspace_name,
+            location=settings.location,
+            resource_group_name=resource_group.name,
+            sku="standard"
         )
 
 app = App()
