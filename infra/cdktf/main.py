@@ -78,11 +78,11 @@ class MyStack(TerraformStack):
 
         databricks_ws = DatabricksWorkspace(
             self,
-            id_="ap_adb",
-            name=settings.databricks_workspace_name,
-            location=settings.location,
-            resource_group_name=resource_group.name,
-            sku="standard"
+            id_                         = "ap_adb",
+            name                        = settings.databricks_workspace_name,
+            location                    = settings.location,
+            resource_group_name         = resource_group.name,
+            sku                         = "standard"
         )
 
 app = App()
