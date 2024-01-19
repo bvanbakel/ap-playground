@@ -16,6 +16,9 @@ class ApSettings():
         load_dotenv("infra/cdktf/.env")
 
         self.tenant_id = os.environ["ARM_TENANT_ID"]
+        self.subscription_id = os.environ["ARM_SUBSCRIPTION_ID"]
+        self.client_id = os.environ["ARM_CLIENT_ID"]
+        self.client_secret = os.environ["ARM_CLIENT_SECRET"]
         self.env_long = environment
         self.env_short = environment[0]
         self.prefix = "ap"
@@ -37,6 +40,10 @@ class MyStack(TerraformStack):
         azure_provider = AzurermProvider(
             self, 
             id                          = 'Azure',
+            tenant_id                   = settings.tenant_id,
+            subscription_id             = settings.subscription_id,
+            client_id                   = settings.client_id,
+            client_secret               = settings.client_secret,
             features                    = {}
         )
 
