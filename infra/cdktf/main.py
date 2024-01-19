@@ -24,7 +24,7 @@ class ApSettings():
         self.prefix = "ap"
         self.project_name = "xprtlab"
         self.resource_group_name = f"{self.prefix}-{self.env_short}-{self.project_name}-rg"
-        self.storage_account_name = f"{self.prefix}{self.env_short}datalakesa"
+        self.storage_account_name = f"{self.prefix}{self.env_short}{self.project_name}sa"
         self.data_factory_name = f"{self.prefix}-{self.env_short}-{self.project_name}-adf"
         self.key_vault_name = f"{self.prefix}-{self.env_short}-{self.project_name}-kv"
         self.databricks_workspace_name = f"{self.prefix}-{self.env_short}-{self.project_name}-adb"
