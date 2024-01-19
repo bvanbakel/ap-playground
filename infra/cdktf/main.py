@@ -4,7 +4,7 @@ from cdktf import App, TerraformStack
 from cdktf_cdktf_provider_azurerm.provider import AzurermProvider
 from cdktf_cdktf_provider_azurerm.storage_account import StorageAccount
 from cdktf_cdktf_provider_azurerm.resource_group import ResourceGroup
-from cdktf_cdktf_provider_azurerm.data_factory import DataFactory
+from cdktf_cdktf_provider_azurerm.data_factory import DataFactory, DataFactoryGithubConfiguration
 from cdktf_cdktf_provider_azurerm.key_vault import KeyVault
 from cdktf_cdktf_provider_azurerm.databricks_workspace import DatabricksWorkspace
 from dotenv import load_dotenv
@@ -63,7 +63,14 @@ class MyStack(TerraformStack):
             id_                         = "ap_adf",
             name                        = settings.data_factory_name,
             location                    = settings.location,
-            resource_group_name         = resource_group.name
+            resource_group_name         = resource_group.name,
+            github_configuration        = DataFactoryGithubConfiguration(
+                                            account_name= "bvanbakel",
+                                            branch_name= "main",
+                                            git_url= "https://github.com",
+                                            repository_name= "ap-xprtlab-df",
+                                            root_folder= "/"
+                                        )
         )
 
         key_vault = KeyVault(
