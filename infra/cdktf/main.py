@@ -63,7 +63,7 @@ class MyStack(TerraformStack):
             id_                         = "ap_adf",
             name                        = settings.data_factory_name,
             location                    = settings.location,
-            resource_group_name         = resource_group.name
+            resource_group_name         = resource_group.name,
             github_configuration        = DataFactoryGithubConfiguration(
                                             self,
                                             account_name= "bvanbakel",
