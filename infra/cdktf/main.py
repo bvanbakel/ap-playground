@@ -65,7 +65,6 @@ class MyStack(TerraformStack):
             location                    = settings.location,
             resource_group_name         = resource_group.name,
             github_configuration        = DataFactoryGithubConfiguration(
-                                            self,
                                             account_name= "bvanbakel",
                                             branch_name= "main",
                                             git_url= "https://github.com",
