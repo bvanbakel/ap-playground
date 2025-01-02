@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ee80c299f81818c83ef071f1e64b1e0e0c8686f5d02e0941b1dcd369e6324ee7"
+            "sha256": "28037a46821c3451f42d4ec40bdcb0952641256857ab231ef0de2c8f810f480f"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.11"
+            "python_version": "3.10"
         },
         "sources": [
             {
@@ -49,6 +49,15 @@
             "markers": "python_version ~= '3.8'",
             "version": "==13.14.0"
         },
+        "cdktf-cdktf-provider-databricks": {
+            "hashes": [
+                "sha256:06a535288ed686d1ff699013cb7acc04239c27858d32d9c9e3a5b77fa4cedec9",
+                "sha256:eba4eecc82bb6506e1a48eff07282e105d022f2f9e2331758934c34e105bb320"
+            ],
+            "index": "pypi",
+            "markers": "python_version ~= '3.8'",
+            "version": "==13.27.1"
+        },
         "constructs": {
             "hashes": [
                 "sha256:1f0f59b004edebfde0f826340698b8c34611f57848139b7954904c61645f13c1",
@@ -56,6 +65,14 @@
             ],
             "markers": "python_version ~= '3.8'",
             "version": "==10.4.2"
+        },
+        "exceptiongroup": {
+            "hashes": [
+                "sha256:3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b",
+                "sha256:47c2edf7c6738fafb49fd34290706d1a1a2f4d1c6df275526b62cbb4aa5393cc"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==1.2.2"
         },
         "importlib-resources": {
             "hashes": [

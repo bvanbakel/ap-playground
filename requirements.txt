@@ -1,2 +1,3 @@
 python-dotenv==1.0.0
 cdktf-cdktf-provider-azurerm==13.14.0
+cdktf-cdktf-provider-databricks==13.27.1

@@ -6,8 +6,9 @@ name = "pypi"
 [packages]
 python-dotenv = "==1.0.0"
 cdktf-cdktf-provider-azurerm = "==13.14.0"
+cdktf-cdktf-provider-databricks = "==13.27.1"
 
 [dev-packages]
 
 [requires]
-python_version = "3.11"
+python_version = "3.10"

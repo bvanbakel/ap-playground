@@ -7,6 +7,9 @@ from cdktf_cdktf_provider_azurerm.resource_group import ResourceGroup
 from cdktf_cdktf_provider_azurerm.data_factory import DataFactory, DataFactoryGithubConfiguration
 from cdktf_cdktf_provider_azurerm.key_vault import KeyVault
 from cdktf_cdktf_provider_azurerm.databricks_workspace import DatabricksWorkspace
+from cdktf_cdktf_provider_databricks.metastore import Metastore
+from cdktf_cdktf_provider_databricks.metastore_assignment import MetastoreAssignment
+
 from dotenv import load_dotenv
 import os
 
@@ -90,14 +93,30 @@ class MyStack(TerraformStack):
             sku_name                    = "standard"
         )
 
+        databricks_metastore = Metastore(
+            self,
+            id_= "ap_metastore",
+            name= "analytixpower_metastore",
+            region= settings.location,
+        )
+
         databricks_ws = DatabricksWorkspace(
             self,
             id_                         = "ap_adb",
             name                        = settings.databricks_workspace_name,
             location                    = settings.location,
             resource_group_name         = resource_group.name,
-            sku                         = "standard"
+            sku                         = "premium"
         )
+
+        databricks_metastore_assignment = MetastoreAssignment(
+            self,
+            id_="metastore_assignment",
+            metastore_id=databricks_metastore.metastore_id,
+            workspace_id=databricks_ws.workspace_id
+        )
+
+
 
 app = App()
 MyStack(app, "cdktf")
