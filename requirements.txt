@@ -1,2 +1,2 @@
 python-dotenv==1.0.0
-cdktf-cdktf-provider-azurerm==11.2.0
+cdktf-cdktf-provider-azurerm==13.14.0
