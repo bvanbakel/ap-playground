@@ -44,7 +44,7 @@ class MyStack(TerraformStack):
             subscription_id             = settings.subscription_id,
             client_id                   = settings.client_id,
             client_secret               = settings.client_secret,
-            features                    = {}
+            features                    = [{}]
         )
 
         resource_group = ResourceGroup(
